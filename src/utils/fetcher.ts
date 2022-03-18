@@ -18,10 +18,16 @@ export const fetcher = async <T = undefined>({
       },
     });
 
+    if (response.status < 200 || response.status > 399) {
+      return {
+        success: false,
+      };
+    } 
+    
     return {
       success: true,
       data: await response.json(),
-    };
+    }; 
   } catch {
     return {
       success: false,
