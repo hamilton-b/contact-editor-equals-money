@@ -10,6 +10,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import DatePicker from "@mui/lab/DatePicker";
 import LoadingButton from "@mui/lab/LoadingButton";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import gbLocale from 'date-fns/locale/en-GB';
 import { Formik } from "formik";
 import { object } from "yup";
 import { Contact, ContactSubmitItem } from "~/models/Contact";
@@ -112,7 +113,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             </Grid>
             <Grid item xs={12} md={6}>
               <FormControl fullWidth variant="outlined">
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <LocalizationProvider dateAdapter={AdapterDateFns} locale={gbLocale}>
                   <DatePicker
                     label="Date of Birth"
                     value={values.birthday}
